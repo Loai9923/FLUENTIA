@@ -1,0 +1,17 @@
+@import '_variables.scss';
+
+.page-not-found {
+  text-align: center;
+  padding-top: 50px;
+
+  h1 {
+    font-size: 6rem;
+    color: $primary-color;
+  }
+
+  p {
+    font-size: 1.5rem;
+    color: #666;
+  }
+
+}

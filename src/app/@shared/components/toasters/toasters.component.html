@@ -1,0 +1,59 @@
+<div [dir]="direction" class="message-container">
+  <div class="message-container__message-content">
+    <div class="message-container__message-content__icon">
+      @switch (data.action) {
+        @case ('success') {
+          <mat-icon
+            class="success-icon"
+            aria-hidden="false"
+            aria-label="Example home icon"
+          >
+            check_circle
+          </mat-icon>
+        }
+
+        @case ('warning') {
+          <mat-icon
+            class="warning-icon"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="error"
+          >
+            error
+          </mat-icon>
+        }
+
+        @case ('info') {
+          <mat-icon
+            class="info-icon"
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="info"
+          >
+            info
+          </mat-icon>
+        }
+      }
+    </div>
+
+    <div class="message-container__message-content__wrapper">
+      <div class="message-container__message-content__wrapper__title">
+        {{ data.title }}
+      </div>
+      <div class="message-container__message-content__wrapper__sub-title">
+        {{ data.message }}
+      </div>
+    </div>
+  </div>
+
+  <button
+    (click)="close()"
+    class="close-btn"
+    mat-icon-button
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon aria-hidden="false" aria-label="Example home icon">
+      close
+    </mat-icon>
+  </button>
+</div>

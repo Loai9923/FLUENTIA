@@ -1,0 +1,79 @@
+@use '_variables.scss' as *;
+
+.page__header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.page__title {
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: $brand-navy;
+}
+
+.page__subtitle {
+  margin: 8px 0 0 0;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(11, 58, 102, 0.7);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  border: 1px solid rgba(11, 58, 102, 0.12);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.item .material-icons {
+  color: $brand-navy;
+}
+
+.k {
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: $brand-navy;
+}
+
+.v {
+  margin-top: 4px;
+  font-weight: 800;
+  color: rgba(11, 58, 102, 0.78);
+}
+
+.art {
+  border-radius: 16px;
+  border: 1px solid rgba(11, 58, 102, 0.12);
+  background:
+    radial-gradient(80% 80% at 20% 20%, rgba(0, 167, 216, 0.25), transparent 60%),
+    radial-gradient(80% 80% at 70% 20%, rgba(212, 166, 42, 0.22), transparent 60%),
+    radial-gradient(80% 80% at 60% 70%, rgba(34, 181, 115, 0.22), transparent 60%),
+    #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+

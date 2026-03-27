@@ -1,0 +1,109 @@
+@let errors = control()?.errors; @if (errors?.['required']) {
+<ng-container>
+  {{ messages()?.required ?? "shared.validation.required" | translate }}
+</ng-container>
+} @else if (errors?.['email']) {
+<ng-container>
+  {{ messages()?.email ?? "shared.validation.invalidEmail" | translate }}
+</ng-container>
+} @else if (errors?.['min']) {
+<ng-container>
+  {{ messages()?.min ?? "shared.validation.minLength" | translate: {minLength: data()?.minLength || ''} }}
+</ng-container>
+} @else if (errors?.['minlength']) {
+<ng-container>
+  {{ messages()?.minlength ?? "shared.validation.minDigitsLength" | translate: {minLength: data()?.minLength || ''} }}
+</ng-container>
+} @else if (errors?.['max']) {
+<ng-container>
+  {{ messages()?.max ?? "shared.validation.maxLength" | translate: {maxLength: data()?.maxLength || ''} }}
+</ng-container>
+} @else if (errors?.['maxlength']) {
+<ng-container>
+  {{ messages()?.maxlength ?? "shared.validation.maxDigitsLength" | translate: {maxLength: data()?.maxLength || ''} }}
+</ng-container>
+} @else if (errors?.['notOnlySpaces']) {
+<ng-container>
+  {{
+  messages()?.notOnlySpaces ?? "shared.validation.notOnlySpaces" | translate
+  }}
+</ng-container>
+} @else if (errors?.['arabicPattern']) {
+<ng-container>
+  {{
+  messages()?.arabicPattern ?? "shared.validation.arabicPattern" | translate
+  }}
+</ng-container>
+} @else if (errors?.['englishPattern']) {
+<ng-container>
+  {{
+  messages()?.englishPattern ?? "shared.validation.englishPattern" | translate
+  }}
+</ng-container>
+} @else if (errors?.['onlyTextWithoutNumbers']) {
+<ng-container>
+  {{
+  messages()?.onlyTextWithoutNumbers ??
+  "shared.validation.onlyTextWithoutNumbers" | translate
+  }}
+</ng-container>
+}@else if (errors?.['uaePhoneNumber']) {
+<ng-container>
+  {{
+  messages()?.uaePhoneNumber ?? "shared.validation.uaePhoneNumber" | translate
+  }}
+</ng-container>
+}@else if (errors?.['passwordComplexity']) {
+<ng-container>
+  {{
+  messages()?.passwordComplexityValidator ??
+  "shared.validation.passwordComplexityValidator" | translate
+  }}
+</ng-container>
+}@else if (errors?.['usernameValidation']) {
+<ng-container>
+  {{
+  messages()?.usernameValidation ?? "shared.validation.usernameValidation"
+  | translate
+  }}
+</ng-container>
+}@else if (errors?.['decimalOrSingleOneValidator']) {
+<ng-container>
+  {{
+  messages()?.decimalOrSingleOneValidator ?? "shared.validation.decimalOrSingleOneValidator"
+  | translate
+  }}
+</ng-container>
+} @else if (errors?.['passwordMismatch']) {
+<ng-container>
+  {{
+  messages()?.passwordMismatch ??
+  "shared.validation.passwordMismatchValidation" | translate
+  }}
+</ng-container>
+} @else if (errors?.['digitsOnlyError']) {
+<ng-container>
+  {{
+  messages()?.digitsOnlyError ?? "shared.validation.digitsOnlyError" | translate
+  }}
+</ng-container>
+} @else if (errors?.['emailOrPhoneNumberError']) {
+<ng-container>
+  {{
+  messages()?.emailOrPhoneNumberError ??
+  "shared.validation.emailOrPhoneNumberError" | translate
+  }}
+</ng-container>
+} @else if (errors?.['minAge']) {
+<ng-container>
+  {{
+  messages()?.minAge ?? "shared.validation.minAge" | translate: {requiredAge: errors?.['minAge']?.requiredAge, actualAge: errors?.['minAge']?.actualAge}
+  }}
+</ng-container>
+} @else if (errors?.['invalidCurrentPassword']) {
+<ng-container>
+  {{
+  messages()?.invalidCurrentPassword ?? "shared.validation.invalidCurrentPassword" | translate
+  }}
+</ng-container>
+}

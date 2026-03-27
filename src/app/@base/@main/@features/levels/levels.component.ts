@@ -1,0 +1,186 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+
+type Level = {
+  code: 'A1' | 'A2' | 'B1' | 'B2' | 'C1';
+  label: string;
+  duration: string;
+  who: string;
+  outcome: string;
+  skills: { title: string; items: string[] }[];
+  objectives: string[];
+};
+
+@Component({
+  selector: 'app-levels',
+  templateUrl: './levels.component.html',
+  styleUrl: './levels.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export default class LevelsComponent {
+  levels: Level[] = [
+    {
+      code: 'A1',
+      label: 'Beginner',
+      duration: '3–4 months (Intensive) or 6–8 months (Regular)',
+      who: 'Complete beginners with little or no English knowledge',
+      outcome: 'Can communicate in simple situations and understand basic everyday English',
+      skills: [
+        {
+          title: 'Speaking',
+          items: [
+            'Greet and introduce yourself in simple conversations',
+          ],
+        },
+        {
+          title: 'Listening',
+          items: [
+            'Recognize and understand simple phrases and questions',
+          ],
+        },
+        {
+          title: 'Reading',
+          items: [
+            'Read short, simple texts and everyday signs',
+          ],
+        },
+        {
+          title: 'Writing',
+          items: [
+            'Write basic personal information and short sentences',
+          ],
+        },
+      ],
+      objectives: [
+        'Introduce yourself and others confidently',
+        'Ask and answer simple personal questions',
+        'Use essential vocabulary about family, shopping, and work',
+        'Describe your home, surroundings, and people you know',
+      ],
+    },
+    {
+      code: 'A2',
+      label: 'Elementary',
+      duration: '3–4 months (Intensive) or 6–8 months (Regular)',
+      who: 'Students who can handle basic routine communication',
+      outcome: 'Can communicate in routine tasks requiring simple information exchange',
+      skills: [
+        {
+          title: 'Reading',
+          items: ['Read short, simple texts with familiar vocabulary'],
+        },
+        {
+          title: 'Speaking',
+          items: ['Discuss familiar topics and daily routines'],
+        },
+        {
+          title: 'Listening',
+          items: ['Understand conversations on common everyday topics'],
+        },
+        {
+          title: 'Writing',
+          items: ['Write simple notes, messages, and short descriptions'],
+        },
+      ],
+      objectives: [
+        'Describe your background, environment, and daily life',
+        'Understand basic TV programs or multimedia when spoken slowly',
+        'Express opinions on familiar topics',
+        'Make simple purchases, requests, and orders',
+      ],
+    },
+    {
+      code: 'B1',
+      label: 'Intermediate',
+      duration: '4–5 months (Intensive) or 8–10 months (Regular)',
+      who: 'Students who can handle everyday situations',
+      outcome: 'Can deal confidently with most situations while traveling and at work',
+      skills: [
+        {
+          title: 'Speaking',
+          items: ['Participate in conversations on familiar topics with confidence'],
+        },
+        {
+          title: 'Listening',
+          items: ['Identify main points in clear, standard speech'],
+        },
+        {
+          title: 'Reading',
+          items: ['Understand texts on everyday or familiar subjects'],
+        },
+        {
+          title: 'Writing',
+          items: ['Write connected text on personal experiences and familiar topics'],
+        },
+      ],
+      objectives: [
+        'Handle most travel and everyday situations effectively',
+        'Describe experiences, events, dreams, and ambitions',
+        'Give reasons and explanations for opinions and plans',
+        'Understand TV shows, news, and basic media with subtitles',
+      ],
+    },
+    {
+      code: 'B2',
+      label: 'Upper-Intermediate',
+      duration: '4–6 months (Intensive) or 10–12 months (Regular)',
+      who: 'Students who can interact with native speakers fairly fluently',
+      outcome: 'Can communicate effectively in professional and academic contexts',
+      skills: [
+        {
+          title: 'Speaking',
+          items: ['Speak fluently and spontaneously in various contexts'],
+        },
+        {
+          title: 'Listening',
+          items: ['Understand extended speech, lectures, and media content'],
+        },
+        {
+          title: 'Reading',
+          items: ['Read articles on contemporary issues and professional texts'],
+        },
+        {
+          title: 'Writing',
+          items: ['Write detailed texts on a wide range of subjects'],
+        },
+      ],
+      objectives: [
+        'Interact naturally with native speakers',
+        'Present clear, detailed descriptions on topics of interest',
+        'Explain viewpoints and argue ideas in topical issues',
+        'Understand most TV shows, documentaries, and current affairs',
+      ],
+    },
+    {
+      code: 'C1',
+      label: 'Advanced',
+      duration: '5–7 months (Intensive) or 12–14 months (Regular)',
+      who: 'Students aiming for near-fluent proficiency',
+      outcome: 'Can use English for professional, academic, and social purposes with precision',
+      skills: [
+        {
+          title: 'Speaking',
+          items: ['Express ideas fluently, accurately, and persuasively'],
+        },
+        {
+          title: 'Listening',
+          items: ['Understand virtually all spoken English, including complex discussions'],
+        },
+        {
+          title: 'Reading',
+          items: ['Interpret complex texts, literature, and specialized materials'],
+        },
+        {
+          title: 'Writing',
+          items: ['Write well-structured, coherent, and detailed texts'],
+        },
+      ],
+      objectives: [
+        'Use English flexibly for social, academic, and professional purposes',
+        'Produce clear, well-structured texts on complex subjects',
+        'Understand virtually everything read or heard',
+        'Summarize and reconstruct arguments from multiple sources',
+      ],
+    },
+  ];
+}
+

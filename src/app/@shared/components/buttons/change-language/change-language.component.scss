@@ -1,0 +1,7 @@
+@use '_variables.scss' as *;
+
+.language-button {
+        .mat-icon, span {
+            color: $layout-icons;
+        }
+}    

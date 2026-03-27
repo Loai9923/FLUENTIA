@@ -1,0 +1,7 @@
+
+describe('ToastService', () => {
+
+  it('should be created', () => {
+    expect(true).toBeTruthy();
+  });
+});

@@ -1,0 +1,46 @@
+$white-color: #ffffff;
+$black-color: #000000;
+$hover-bg: #f6ecef;
+$side-menu-border: #e9eaeb;
+$text-color: #1e293b;
+$description-color: #b3b3b3;
+$link-color: #369efb;
+$danger-color: #b42318;
+$layout-icons: #737373;
+$separator-color: #bebebe;
+$title-container-border: #ededed;
+$external-screen-border: #d5d7da;
+$external-screen-text: #9a9a9a;
+$external-screen-icon: #40399a;
+$external-screen-icon-border: #1d1580;
+$profile-name-color: #414651;
+$profile-email-color: #f4f3f9;
+$director-text-color: #055160;
+$success-color: #155724;
+$success-background: #d4edda;
+$partial-success-color: #ffa000;
+$partial-success-background: #fff3e0;
+$failed-color: #b42318;
+$failed-background: #fae6e6;
+$info-color: #0058bb;
+$info-background: #edf0ff;
+$director-text-background: #d9f0f4;
+$green-color: #30cb83;
+$yellow-color: #ffa000;
+$primary-color: #8B1538;
+$calender-background: #2970AF;
+$disabled-color: #d5d7da;
+$photo-bg: #C7B9DA;
+$warning-icon: #ffc107;
+
+/* Fluentia palette (website) */
+$brand-navy: #0b3a66;
+$brand-gold: #d4a62a;
+$brand-cyan: #00a7d8;
+$brand-mint: #a8f0ff;
+$brand-lime: #78d84a;
+$brand-green: #22b573;
+
+/* Map legacy primary to new brand */
+$primary-color: $brand-navy;
+$calender-background: $brand-navy;

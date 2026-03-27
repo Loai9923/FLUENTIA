@@ -1,0 +1,35 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap: 25px;
+    grid-row-gap: 25px;
+
+    & .card {
+        border: 1px solid #eee;
+        border-radius: 8px;
+        padding: 16px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &.profile-card {
+            grid-area: 1 / 1 / 7 / 2;
+        }
+
+        &.mosque-card {
+            grid-area: 7 / 1 / 11 / 2;
+        }
+
+        &.statistics-cards {
+            grid-area: 1 / 2 / 2 / 6;
+        }
+
+        &.latest-activities-cards {
+            grid-area: 2 / 2 / 7 / 6;
+        }
+
+        &.latest-sermons-cards {
+            grid-area: 7 / 2 / 11 / 6;
+        }
+    }
+}

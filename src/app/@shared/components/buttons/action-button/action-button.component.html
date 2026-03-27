@@ -1,0 +1,100 @@
+@switch (type()) { @case ('basic') {
+<button
+  (click)="handleClickEvent()"
+  [disabled]="disabled()"
+  mat-button
+  [color]="color()"
+  [ngClass]="{
+            'mat-button-small': size() === 'small',
+            'mat-button-medium': size() === 'medium',
+            'mat-button-large': size() === 'large',
+            'w-100': fullWidth(),
+          }"
+>
+  <div class="d-flex justify-content-center align-items-center gap-2">
+    @if (icon()) {
+    <mat-icon>{{ icon() }}</mat-icon>
+    }
+    <span>{{ text() }}</span>
+  </div>
+</button>
+} @case ('raised') {
+<button
+  class="d-flex justify-content-center align-items-center"
+  (click)="handleClickEvent()"
+  [disabled]="disabled() || isLoading()"
+  [color]="color()"
+  mat-raised-button
+  [ngClass]="{
+            'mat-button-small': size() === 'small',
+            'mat-button-medium': size() === 'medium',
+            'mat-button-large': size() === 'large',
+            'w-100': fullWidth(),
+          }"
+>
+  @if (isLoading()) {
+  <ng-container *ngTemplateOutlet="loader"></ng-container>
+  } @else {
+  <div class="d-flex justify-content-center align-items-center gap-2">
+    <mat-icon *ngIf="icon()">{{ icon() }}</mat-icon>
+    <span>{{ text() }}</span>
+  </div>
+  }
+</button>
+} @case ('stroked') {
+<button
+  class="d-flex justify-content-center align-items-center"
+  (click)="handleClickEvent()"
+  [disabled]="disabled() || isLoading()"
+  [color]="color()"
+  mat-stroked-button
+  [ngClass]="{
+            'mat-button-small': size() === 'small',
+            'mat-button-medium': size() === 'medium',
+            'mat-button-large': size() === 'large',
+            'w-100': fullWidth(),
+          }"
+>
+  @if (isLoading()) {
+  <ng-container *ngTemplateOutlet="loader"></ng-container>
+  } @else {
+  <div class="d-flex justify-content-center align-items-center gap-2">
+    <mat-icon *ngIf="icon()">{{ icon() }}</mat-icon>
+    <span>{{ text() }}</span>
+  </div>
+  }
+</button>
+} @case ('flat') {
+<button
+  class="d-flex justify-content-center align-items-center"
+  (click)="handleClickEvent()"
+  [disabled]="disabled() || isLoading()"
+  realsoft-flat-button
+  [color]="color()"
+  [size]="size()"
+  [class.w-100]="fullWidth()"
+>
+  @if (isLoading()) {
+  <ng-container *ngTemplateOutlet="loader"></ng-container>
+  } @else {
+  <div class="d-flex justify-content-center align-items-center gap-2">
+    <span>{{ text() }}</span>
+    <span class="material-icons" *ngIf="icon()">{{ icon() }}</span>
+  </div>
+  }
+</button>
+} @default {
+<button realsoft-raised-button>{{ text() }}</button>
+} }
+
+<ng-template #loader>
+  @switch (size()) { @case ('small') {
+  <mat-spinner diameter="20"></mat-spinner>
+  } @case ('medium') {
+  <mat-spinner diameter="25"></mat-spinner>
+  } @case ('large') {
+  <mat-spinner diameter="30"></mat-spinner>
+  } @default {
+  <mat-spinner diameter="25"></mat-spinner>
+  } }
+</ng-template>

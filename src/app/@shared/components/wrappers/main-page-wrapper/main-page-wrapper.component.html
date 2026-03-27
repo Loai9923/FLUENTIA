@@ -1,0 +1,13 @@
+<section class="main-page-wrapper">
+  <div class="main-page-wrapper__header">
+    <div class="main-page-wrapper__header__title">
+      <ng-content select="[app-wrapper-header-title]"></ng-content>
+    </div>
+    <div class="main-page-wrapper__header__actions">
+      <ng-content select="[app-wrapper-header-actions]"></ng-content>
+    </div>
+  </div>
+  <div class="main-page-wrapper__content">
+    <ng-content select="[app-wrapper-content]"></ng-content>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+<section class="page">
+  <header class="hero">
+    <p class="hero__eyebrow">Fluentia Learning Path</p>
+    <h1 class="hero__title">ENGLISH LEVELS</h1>
+    <p class="hero__subtitle">Clear outcomes from A1 to C1 with practical speaking-focused progress.</p>
+  </header>
+
+  <nav class="level-jump" aria-label="Jump to level">
+    @for (lvl of levels; track lvl.code) {
+      <a class="level-jump__item" href="#level-{{ lvl.code }}">
+        <span class="level-jump__code">{{ lvl.code }}</span>
+        <span class="level-jump__text">{{ lvl.label }}</span>
+      </a>
+    }
+  </nav>
+
+  <div class="timeline">
+    @for (lvl of levels; track lvl.code; let i = $index) {
+      <article class="level-card" id="level-{{ lvl.code }}">
+        <div class="level-card__head">
+          <div class="level-card__identity">
+            <div class="level-card__dot">{{ i + 1 }}</div>
+            <div>
+              <div class="level-card__code">{{ lvl.code }}</div>
+              <div class="level-card__name">{{ lvl.label }}</div>
+            </div>
+          </div>
+          <div class="level-card__duration">{{ lvl.duration }}</div>
+        </div>
+
+        <div class="level-card__intro">
+          <div class="panel">
+            <div class="panel__title">Who it's for</div>
+            <div class="panel__text">{{ lvl.who }}</div>
+          </div>
+          <div class="panel">
+            <div class="panel__title">Expected progress outcome</div>
+            <div class="panel__text">{{ lvl.outcome }}</div>
+          </div>
+        </div>
+
+        <div class="level-card__body">
+          <section class="section">
+            <h3 class="section__title">Skills Focus</h3>
+            <div class="skills-grid">
+              @for (s of lvl.skills; track s.title) {
+                <div class="skill-card">
+                  <div class="skill-card__title">{{ s.title }}</div>
+                  <ul class="skill-card__list">
+                    @for (it of s.items; track it) {
+                      <li>{{ it }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          </section>
+
+          <section class="section">
+            <h3 class="section__title">Learning Objectives</h3>
+            <ul class="objective-list">
+              @for (o of lvl.objectives; track o) {
+                <li>{{ o }}</li>
+              }
+            </ul>
+          </section>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+

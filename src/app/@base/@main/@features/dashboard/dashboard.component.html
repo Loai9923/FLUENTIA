@@ -1,0 +1,25 @@
+<app-main-page-wrapper>
+    <ng-container app-wrapper-content>
+        <div class="dashboard-container">
+            <div class="card profile-card">
+                <app-profile-card [user]="currentUser()!"></app-profile-card>
+            </div>
+
+            <div class="card mosque-card">
+                <app-mosque-card [mosqueInfo]="mosqueInfo()!"></app-mosque-card>
+            </div>
+
+            <div class="card statistics-cards">
+                
+            </div>
+
+            <div class="card latest-activities-cards">
+
+            </div>
+
+            <div class="card latest-sermons-cards">
+
+            </div>
+        </div>
+    </ng-container>
+</app-main-page-wrapper>

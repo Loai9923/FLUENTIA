@@ -1,0 +1,226 @@
+@use "@angular/material" as mat;
+
+/* Light Theme */
+:root,
+:host {
+  @include mat.theme-overrides(
+    (
+      primary: #0b3a66,
+      on-primary: #ffffff,
+      primary-container: #d9f0ff,
+      on-primary-container: #001b33,
+      inverse-primary: #8cc9ff,
+      primary-fixed: #d9f0ff,
+      primary-fixed-dim: #8cc9ff,
+      on-primary-fixed: #001b33,
+      on-primary-fixed-variant: #0b3a66,
+      secondary: #d4a62a,
+      on-secondary: #ffffff,
+      secondary-container: #fff2cf,
+      on-secondary-container: #2b1f00,
+      secondary-fixed: #fff2cf,
+      secondary-fixed-dim: #f0d07a,
+      on-secondary-fixed: #2b1f00,
+      on-secondary-fixed-variant: #6a4c00,
+      tertiary: #22b573,
+      on-tertiary: #ffffff,
+      tertiary-container: #c9ffe7,
+      on-tertiary-container: #002114,
+      tertiary-fixed: #c9ffe7,
+      tertiary-fixed-dim: #76e8b8,
+      on-tertiary-fixed: #002114,
+      on-tertiary-fixed-variant: #006b45,
+      background: #fbfbfb,
+      on-background: #1F1A1B,
+      surface: #fbfbfb,
+      surface-dim: #E0DCDD,
+      surface-bright: #fbfbfb,
+      surface-container-lowest: #ffffff,
+      surface-container-low: #f6f7f9,
+      surface-container: #f0f2f6,
+      surface-container-high: #e9edf3,
+      surface-container-highest: #e4e9f1,
+      on-surface: #1F1A1B,
+      shadow: #000000,
+      scrim: #000000,
+      surface-tint: #0b3a66,
+      inverse-surface: #342F30,
+      inverse-on-surface: #F7F0F1,
+      outline: #7C7579,
+      outline-variant: #CFC4C7,
+      neutral: #787677,
+      neutral10: #1F1A1B,
+      error: #ba1a1a,
+      error-container: #ffdad6,
+      on-error: #ffffff,
+      on-error-container: #410002,
+      surface-variant: #e7eef7,
+      on-surface-variant: #32445a,
+      neutral-variant: #78767c,
+      neutral-variant20: #313035,
+      inverse-secondary: #f0d07a,
+      inverse-tertiary: #76e8b8,
+    )
+  );
+}
+
+/* Dark Theme */
+.dark {
+  @include mat.theme-overrides(
+    (
+      primary: #8cc9ff,
+      on-primary: #003256,
+      primary-container: #0b3a66,
+      on-primary-container: #d9f0ff,
+      inverse-primary: #0b3a66,
+      primary-fixed: #d9f0ff,
+      primary-fixed-dim: #8cc9ff,
+      on-primary-fixed: #001b33,
+      on-primary-fixed-variant: #0b3a66,
+      secondary: #f0d07a,
+      on-secondary: #3a2b00,
+      secondary-container: #6a4c00,
+      on-secondary-container: #fff2cf,
+      secondary-fixed: #fff2cf,
+      secondary-fixed-dim: #f0d07a,
+      on-secondary-fixed: #2b1f00,
+      on-secondary-fixed-variant: #6a4c00,
+      tertiary: #76e8b8,
+      on-tertiary: #003824,
+      tertiary-container: #006b45,
+      on-tertiary-container: #c9ffe7,
+      tertiary-fixed: #c9ffe7,
+      tertiary-fixed-dim: #76e8b8,
+      on-tertiary-fixed: #002114,
+      on-tertiary-fixed-variant: #006b45,
+      background: #151113,
+      on-background: #E7E3E4,
+      surface: #151113,
+      surface-dim: #151113,
+      surface-bright: #3C3739,
+      surface-container-lowest: #100D0E,
+      surface-container-low: #1F1A1B,
+      surface-container: #232023,
+      surface-container-high: #2E282A,
+      surface-container-highest: #393134,
+      on-surface: #E7E3E4,
+      shadow: #000000,
+      scrim: #000000,
+      surface-tint: #8cc9ff,
+      inverse-surface: #E7E3E4,
+      inverse-on-surface: #342F30,
+      outline: #968E91,
+      outline-variant: #4E444B,
+      neutral: #787677,
+      neutral10: #1F1A1B,
+      error: #ffb4ab,
+      error-container: #93000a,
+      on-error: #690005,
+      on-error-container: #ffdad6,
+      surface-variant: #253446,
+      on-surface-variant: #cfe2f8,
+      neutral-variant: #78767c,
+      neutral-variant20: #313035,
+      inverse-secondary: #d4a62a,
+      inverse-tertiary: #22b573,
+    )
+  );
+}
+
+/* Typography */
+:root,
+:host {
+  /* core typography tokens are not generating css variables, hence below */
+  --mat-sys-brand-font-family: 'URW DIN Arabic';
+  --mat-sys-plain-font-family: 'URW DIN Arabic Medium';
+  --mat-sys-bold-font-weight: 700;
+  --mat-sys-medium-font-weight: 500;
+  --mat-sys-regular-font-weight: 400;
+  
+
+  @include mat.theme-overrides(
+    (
+      brand-family: 'URW DIN Arabic',
+      plain-family: 'URW DIN Arabic Medium',
+      bold-weight: 700,
+      medium-weight: 500,
+      regular-weight: 400,
+      headline-large-font: var(--mat-sys-brand-font-family),
+      headline-medium-font: var(--mat-sys-brand-font-family),
+      headline-small-font: var(--mat-sys-brand-font-family),
+      display-large-font: var(--mat-sys-brand-font-family),
+      display-medium-font: var(--mat-sys-brand-font-family),
+      display-small-font: var(--mat-sys-brand-font-family),
+      title-large-font: var(--mat-sys-brand-font-family),
+      body-large: var(--mat-sys-body-large-weight)
+        var(--mat-sys-body-large-size) / var(--mat-sys-body-large-line-height)
+        var(--mat-sys-body-large-font),
+      body-medium: var(--mat-sys-body-medium-weight)
+        var(--mat-sys-body-medium-size) / var(--mat-sys-body-medium-line-height)
+        var(--mat-sys-body-medium-font),
+      body-small: var(--mat-sys-body-small-weight)
+        var(--mat-sys-body-small-size) / var(--mat-sys-body-small-line-height)
+        var(--mat-sys-body-small-font),
+      label-large: var(--mat-sys-label-large-weight)
+        var(--mat-sys-label-large-size) / var(--mat-sys-label-large-line-height)
+        var(--mat-sys-label-large-font),
+      label-medium: var(--mat-sys-label-medium-weight)
+        var(--mat-sys-label-medium-size) /
+        var(--mat-sys-label-medium-line-height) var(--mat-sys-label-medium-font),
+      label-small: var(--mat-sys-label-small-weight)
+        var(--mat-sys-label-small-size) / var(--mat-sys-label-small-line-height)
+        var(--mat-sys-label-small-font),
+      title-large: var(--mat-sys-title-large-weight)
+        var(--mat-sys-title-large-size) / var(--mat-sys-title-large-line-height)
+        var(--mat-sys-title-large-font),
+      title-medium: var(--mat-sys-title-medium-weight)
+        var(--mat-sys-title-medium-size) /
+        var(--mat-sys-title-medium-line-height) var(--mat-sys-title-medium-font),
+      title-small: var(--mat-sys-title-small-weight)
+        var(--mat-sys-title-small-size) / var(--mat-sys-title-small-line-height)
+        var(--mat-sys-title-small-font),
+      headline-large: var(--mat-sys-headline-large-weight)
+        var(--mat-sys-headline-large-size) /
+        var(--mat-sys-headline-large-line-height)
+        var(--mat-sys-headline-large-font),
+      headline-medium: var(--mat-sys-headline-medium-weight)
+        var(--mat-sys-headline-medium-size) /
+        var(--mat-sys-headline-medium-line-height)
+        var(--mat-sys-headline-medium-font),
+      headline-small: var(--mat-sys-headline-small-weight)
+        var(--mat-sys-headline-small-size) /
+        var(--mat-sys-headline-small-line-height)
+        var(--mat-sys-headline-small-font),
+      display-large: var(--mat-sys-display-large-weight)
+        var(--mat-sys-display-large-size) /
+        var(--mat-sys-display-large-line-height)
+        var(--mat-sys-display-large-font),
+      display-medium: var(--mat-sys-display-medium-weight)
+        var(--mat-sys-display-medium-size) /
+        var(--mat-sys-display-medium-line-height)
+        var(--mat-sys-display-medium-font),
+      display-small: var(--mat-sys-display-small-weight)
+        var(--mat-sys-display-small-size) /
+        var(--mat-sys-display-small-line-height)
+        var(--mat-sys-display-small-font),
+    )
+  );
+}
+
+:root,
+:host {
+  --mat-sidenav-container-shape: 0px;
+  --mat-sys-background: var(--mat-sys-background);
+  --mat-sys-surface: var(--mat-sys-background);
+  --mat-sys-corner-extra-large: 9px;
+  --mat-sys-surface-container: #ffffff;
+
+  @include mat.sidenav-overrides((
+    container-background-color: var(--mat-sys-background),
+    container-text-color: #8B1538,
+  ));
+}
+
+body .mat-mdc-menu-panel {
+  background-color: var(--mat-sys-surface-container-lowest);
+}
