@@ -82,7 +82,7 @@ export default class LevelsComponent {
     {
       code: 'A1',
       label: 'Beginner',
-      duration: '3–4 months (Intensive) or 6–8 months (Regular)',
+      duration: '3-4 months (Intensive) or 6-8 months (Regular)',
       who: 'Complete beginners with little or no English knowledge',
       outcome: 'Can communicate in simple situations and understand basic everyday English',
       skills: [
@@ -121,7 +121,7 @@ export default class LevelsComponent {
     {
       code: 'A2',
       label: 'Elementary',
-      duration: '3–4 months (Intensive) or 6–8 months (Regular)',
+      duration: '3-4 months (Intensive) or 6-8 months (Regular)',
       who: 'Students who can handle basic routine communication',
       outcome: 'Can communicate in routine tasks requiring simple information exchange',
       skills: [
@@ -152,7 +152,7 @@ export default class LevelsComponent {
     {
       code: 'B1',
       label: 'Intermediate',
-      duration: '4–5 months (Intensive) or 8–10 months (Regular)',
+      duration: '4-5 months (Intensive) or 8-10 months (Regular)',
       who: 'Students who can handle everyday situations',
       outcome: 'Can deal confidently with most situations while traveling and at work',
       skills: [
@@ -183,7 +183,7 @@ export default class LevelsComponent {
     {
       code: 'B2',
       label: 'Upper-Intermediate',
-      duration: '4–6 months (Intensive) or 10–12 months (Regular)',
+      duration: '4-6 months (Intensive) or 10-12 months (Regular)',
       who: 'Students who can interact with native speakers fairly fluently',
       outcome: 'Can communicate effectively in professional and academic contexts',
       skills: [
@@ -214,7 +214,7 @@ export default class LevelsComponent {
     {
       code: 'C1',
       label: 'Advanced',
-      duration: '5–7 months (Intensive) or 12–14 months (Regular)',
+      duration: '5-7 months (Intensive) or 12-14 months (Regular)',
       who: 'Students aiming for near-fluent proficiency',
       outcome: 'Can use English for professional, academic, and social purposes with precision',
       skills: [
