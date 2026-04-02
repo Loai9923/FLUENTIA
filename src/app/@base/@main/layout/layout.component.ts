@@ -1,3 +1,4 @@
+import { DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -39,12 +40,13 @@ type NavbarLink = {
     MatIconModule,
     MatSidenavModule,
     MatToolbarModule,
-    ChangeLanguageComponent,
   ],
 })
 export class LayoutComponent extends BaseComponent {
   private readonly _placementTestService = inject(PlacementTestService);
   private readonly _destroyRef = inject(DestroyRef);
+  private readonly _document = inject(DOCUMENT);
+  private _bodyScrollY = 0;
 
   /** Mobile slide-out navigation (Material drawer). */
   readonly mobileDrawer = viewChild<MatDrawer>('mobileDrawer');
@@ -186,6 +188,38 @@ export class LayoutComponent extends BaseComponent {
 
   closeMobileNav(): void {
     void this.mobileDrawer()?.close();
+  }
+
+  /**
+   * Prevents the page behind the drawer from scrolling (including iOS overscroll).
+   */
+  onMobileDrawerOpenedChange(opened: boolean): void {
+    const doc = this._document;
+    const body = doc.body;
+    const html = doc.documentElement;
+    const win = doc.defaultView;
+
+    if (opened) {
+      this._bodyScrollY = win?.scrollY ?? 0;
+      html.style.overflow = 'hidden';
+      body.style.overflow = 'hidden';
+      body.style.overscrollBehavior = 'none';
+      body.style.position = 'fixed';
+      body.style.top = `-${this._bodyScrollY}px`;
+      body.style.left = '0';
+      body.style.right = '0';
+      body.style.width = '100%';
+    } else {
+      html.style.removeProperty('overflow');
+      body.style.removeProperty('overflow');
+      body.style.removeProperty('overscroll-behavior');
+      body.style.removeProperty('position');
+      body.style.removeProperty('top');
+      body.style.removeProperty('left');
+      body.style.removeProperty('right');
+      body.style.removeProperty('width');
+      win?.scrollTo(0, this._bodyScrollY);
+    }
   }
 
   onMobileLogout(): void {

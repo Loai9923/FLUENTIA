@@ -3,15 +3,48 @@
 :host {
   display: block;
   min-height: 100dvh;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Fixed viewport layer: image stays put while content scrolls (tower stays in frame) */
+:host::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #1e3d5c;
+  background-image:
+    linear-gradient(
+      135deg,
+      rgba(11, 58, 102, 0.26) 0%,
+      rgba(212, 166, 42, 0.12) 45%,
+      rgba(34, 181, 115, 0.16) 100%
+    ),
+    url('/images/tower-bridge-sunset.png');
+  background-size: cover;
+  /* Bias toward upper area so the bridge towers stay visible */
+  background-position: center 28%;
+  background-repeat: no-repeat;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :host::before {
+    position: absolute;
+    height: 100%;
+    min-height: 100dvh;
+  }
 }
 
 .website {
+  position: relative;
+  z-index: 1;
   min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr;
+  /* minmax(0,1fr) keeps this row from stretching to full page height (fixes oversized mobile drawer) */
+  grid-template-rows: auto minmax(0, 1fr);
   grid-template-columns: minmax(0, 1fr);
-  background:
-    linear-gradient(90deg, rgba(11, 58, 102, 0.06) 0%, rgba(212, 166, 42, 0.08) 55%, rgba(34, 181, 115, 0.06) 100%);
 }
 
 .website__toolbar {
@@ -199,7 +232,7 @@
   }
 }
 
-/* Second grid row fills viewport below toolbar; drawer must stretch to full row height */
+/* Second grid row fills space below toolbar; min-height 0 lets fr row shrink correctly */
 .website__drawer-container {
   min-height: 0;
   height: 100%;
@@ -234,6 +267,8 @@
 :host ::ng-deep .fluentia-mobile-drawer {
   width: min(100vw - 28px, 308px) !important;
   max-width: 100%;
+  /* Never inherit the tall main-content height from mat-drawer-container */
+  max-height: 100dvh !important;
   border: none;
   background: linear-gradient(
     180deg,
@@ -260,7 +295,9 @@
 :host ::ng-deep .fluentia-mobile-drawer .mat-drawer-inner-container {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   height: 100%;
+  max-height: 100dvh;
   overflow: hidden;
   padding: 0;
 }
@@ -268,9 +305,12 @@
 .fluentia-mobile-drawer__scroll {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  flex: 0 1 auto;
+  align-self: stretch;
   min-height: 0;
+  max-height: min(100dvh, 100%);
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 12px 14px 20px;
   -webkit-overflow-scrolling: touch;
 }
@@ -433,8 +473,11 @@
 
 .website__footer {
   flex-shrink: 0;
-  background: rgba(212, 166, 42, 0.22);
-  border-top: 1px solid rgba(11, 58, 102, 0.12);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(11, 58, 102, 0.14);
+  box-shadow: 0 -8px 32px rgba(11, 58, 102, 0.08);
 }
 
 .website__footer-inner {

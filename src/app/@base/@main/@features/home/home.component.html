@@ -1,7 +1,7 @@
 <div class="landing">
   <section class="hero" id="top">
     <div class="hero__content">
-      <h1 class="hero__title">START YOUR FLUENTIA ENGLISH JOURNEY TODAY!</h1>
+      <h1 class="hero__title">START YOUR <span class="fluentia-word">FLUENTIA</span> ENGLISH JOURNEY TODAY!</h1>
       <ul class="hero__bullets">
         <li>Professional online English lessons tailored to your goals</li>
         <li>Small groups and 1-on-1 classes available</li>
@@ -21,7 +21,7 @@
 
   <section class="tagline" id="how">
     <div class="tagline__eyebrow">ENGLISH LEARNING, ALL IN ONE PLACE</div>
-    <div class="tagline__heading">WHY LEARN WITH US</div>
+    <div class="tagline__heading">WHY LEARN WITH US?</div>
   </section>
 
   <section class="features">
@@ -102,7 +102,31 @@
     <div class="section-title">ABOUT US</div>
     <div class="steps__subtitle">WHO WE ARE</div>
 
-    <div class="about__grid">
+    <p class="home-preview__lead">
+      We help students at every level learn English in a practical, engaging way — with certified
+      teachers, clear goals, and lessons built around real communication.
+    </p>
+
+    <div class="home-preview__pill-row">
+      <div class="home-preview__pill">
+        <span class="home-preview__pill-k">Goal-oriented</span>
+        <span class="home-preview__pill-v">Clear objectives in every lesson</span>
+      </div>
+      <div class="home-preview__pill">
+        <span class="home-preview__pill-k">Student-centered</span>
+        <span class="home-preview__pill-v">Teaching adapted to your needs</span>
+      </div>
+      <div class="home-preview__pill">
+        <span class="home-preview__pill-k">Interactive</span>
+        <span class="home-preview__pill-v">Maximum speaking practice</span>
+      </div>
+      <div class="home-preview__pill">
+        <span class="home-preview__pill-k">Professional</span>
+        <span class="home-preview__pill-v">Proven methods &amp; materials</span>
+      </div>
+    </div>
+
+    <!-- <div class="about__grid">
       <div class="about__card">
         <div class="about__name">NATALLY AL-BALBEISI</div>
         <div class="about__role">Co-founder & Certified English Instructor</div>
@@ -131,6 +155,13 @@
           <li>Speaking-focused & communicative learning</li>
         </ul>
       </div>
+    </div> -->
+
+    <div class="home-preview__footer">
+      <a routerLink="/main/about" class="home-preview__cta">
+        <span>Full about us &amp; mission</span>
+        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+      </a>
     </div>
   </section>
 
@@ -138,7 +169,37 @@
     <div class="section-title">SCHEDULE & PRICING</div>
     <div class="steps__subtitle">FLEXIBLE PACKAGES DESIGNED TO FIT YOUR GOALS</div>
 
-    <div class="pricing__grid">
+    <p class="home-preview__lead">
+      Group classes run on a fixed weekly timetable. One-to-one private sessions are priced
+      separately — everything is detailed on the pricing page.
+    </p>
+
+    <div class="home-schedule-snapshot" aria-label="Group classes schedule summary">
+      <div class="home-schedule-snapshot__head">
+        <span class="material-icons" aria-hidden="true">calendar_month</span>
+        <span>Group classes snapshot (GMT+3)</span>
+      </div>
+      <div class="home-schedule-snapshot__grid">
+        <div class="home-schedule-snapshot__cell">
+          <span class="home-schedule-snapshot__k">Days</span>
+          <span class="home-schedule-snapshot__v">Mon – Thu</span>
+        </div>
+        <div class="home-schedule-snapshot__cell">
+          <span class="home-schedule-snapshot__k">Morning</span>
+          <span class="home-schedule-snapshot__v">10:00 – 11:00</span>
+        </div>
+        <div class="home-schedule-snapshot__cell">
+          <span class="home-schedule-snapshot__k">Evening</span>
+          <span class="home-schedule-snapshot__v">18:00 – 19:00</span>
+        </div>
+        <div class="home-schedule-snapshot__cell">
+          <span class="home-schedule-snapshot__k">Levels</span>
+          <span class="home-schedule-snapshot__v">A1–B1 &amp; B2–C1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="pricing__grid">
       <div class="price-card">
         <div class="price-card__title">One month</div>
         <div class="price-card__price">$100</div>
@@ -148,7 +209,7 @@
           <li>4 sessions/week</li>
           <li>Digital materials</li>
         </ul>
-        <button type="button" class="cta cta--gold cta--small" (click)=" goToPayment()">Buy Now</button>
+        <button type="button" class="cta cta--gold cta--small" (click)="goToPayment()">Buy Now</button>
       </div>
       <div class="price-card price-card--featured">
         <div class="price-card__title">Three months</div>
@@ -159,7 +220,7 @@
           <li>4 sessions/week</li>
           <li>Progress tracking</li>
         </ul>
-        <button type="button" class="cta cta--blue cta--small" (click)=" goToPayment()">Buy Now</button>
+        <button type="button" class="cta cta--blue cta--small" (click)="goToPayment()">Buy Now</button>
       </div>
       <div class="price-card">
         <div class="price-card__title">Six months</div>
@@ -170,8 +231,15 @@
           <li>4 sessions/week</li>
           <li>Digital materials</li>
         </ul>
-        <button type="button" class="cta cta--gold cta--small" (click)=" goToPayment()">Buy Now</button>
+        <button type="button" class="cta cta--gold cta--small" (click)="goToPayment()">Buy Now</button>
       </div>
+    </div> -->
+
+    <div class="home-preview__footer">
+      <a routerLink="/main/pricing" class="home-preview__cta">
+        <span>Full schedule, private rates &amp; packages</span>
+        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+      </a>
     </div>
   </section>
 
@@ -179,7 +247,12 @@
     <div class="section-title">CONTACT US</div>
     <div class="steps__subtitle">READY TO START? GET IN TOUCH WITH US TODAY</div>
 
-    <div class="contact__grid">
+    <p class="home-preview__lead">
+      Questions about levels, schedules, or enrollment? Reach out by email or Instagram — we reply
+      as soon as we can.
+    </p>
+
+    <!-- <div class="contact__grid">
       <div class="contact__box">
         <div class="contact__item">
           <span class="material-icons">mail</span>
@@ -197,6 +270,13 @@
         </div>
       </div>
       <div class="contact__art" aria-hidden="true"></div>
+    </div> -->
+
+    <div class="home-preview__footer">
+      <a routerLink="/main/contact" class="home-preview__cta">
+        <span>Contact page</span>
+        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+      </a>
     </div>
   </section>
 </div>

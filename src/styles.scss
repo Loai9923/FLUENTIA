@@ -10,6 +10,16 @@ html {
     ));
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 html,
 body {
   height: 100%;
@@ -17,6 +27,24 @@ body {
 
 body {
   margin: 0;
+}
+
+/*
+ * “Fluentia” / “FLUENTIA” wordmark only — not surrounding body text (Playfair Display).
+ * Global * rule forces URW DIN, so use !important.
+ */
+.fluentia-word {
+  font-family:
+    'Playfair Display',
+    'Times New Roman',
+    Times,
+    serif !important;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  font-style: normal;
+  font-feature-settings:
+    'kern' 1,
+    'liga' 1;
 }
 
 hr {

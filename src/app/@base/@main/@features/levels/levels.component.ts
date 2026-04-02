@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy, Component, afterNextRender, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 type Level = {
   code: 'A1' | 'A2' | 'B1' | 'B2' | 'C1';
@@ -17,6 +19,65 @@ type Level = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class LevelsComponent {
+  private readonly document = inject(DOCUMENT);
+  private readonly router = inject(Router);
+
+  constructor() {
+    afterNextRender(() => {
+      const id = this.document.defaultView?.location.hash?.slice(1);
+      if (!id?.startsWith('level-')) {
+        return;
+      }
+      const el = this.document.getElementById(id);
+      if (!el) {
+        return;
+      }
+      const reduceMotion = this.document.defaultView?.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches;
+      el.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: 'start',
+      });
+    });
+  }
+
+  levelJumpHref(code: Level['code']): string {
+    const tree = this.router.createUrlTree(['/main', 'levels'], {
+      fragment: `level-${code}`,
+    });
+    return this.router.serializeUrl(tree);
+  }
+
+  onLevelJumpClick(event: MouseEvent, code: Level['code']): void {
+    if (event.button !== 0) {
+      return;
+    }
+    if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) {
+      return;
+    }
+    event.preventDefault();
+
+    const id = `level-${code}`;
+    const el = this.document.getElementById(id);
+    if (!el) {
+      return;
+    }
+    const w = this.document.defaultView;
+    const reduceMotion = w?.matchMedia('(prefers-reduced-motion: reduce)').matches ?? false;
+    el.scrollIntoView({
+      behavior: reduceMotion ? 'auto' : 'smooth',
+      block: 'start',
+    });
+    if (w) {
+      w.history.replaceState(
+        null,
+        '',
+        `${w.location.pathname}${w.location.search}#${id}`,
+      );
+    }
+  }
+
   levels: Level[] = [
     {
       code: 'A1',
