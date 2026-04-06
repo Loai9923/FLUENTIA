@@ -52,6 +52,15 @@
       <p class="state-text">
         You are not enrolled in any course yet. Once admin assigns a course, it appears here.
       </p>
+      @if (shouldShowPurchaseCtas()) {
+        <p class="state-text">
+          You completed your placement test. Choose your plan and enroll in the course that fits you.
+        </p>
+        <div class="enrollment-cta-row">
+          <a routerLink="/main/courses" class="enrollment-cta">Open Courses</a>
+          <a routerLink="/main/pricing" class="enrollment-cta">Open Pricing</a>
+        </div>
+      }
     } @else {
       <div class="role-list">
         @for (enrollment of studentEnrollments(); track enrollment.id) {

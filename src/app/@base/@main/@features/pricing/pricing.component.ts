@@ -1,6 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
+  DestroyRef,
   ElementRef,
   effect,
   inject,
@@ -8,6 +10,7 @@ import {
   untracked,
   viewChild,
 } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Router } from '@angular/router';
 import { environment } from '@environments/environment';
 import {
@@ -17,6 +20,8 @@ import {
 import { PaypalCheckoutService } from '@shared/services/paypal/paypal-checkout.service';
 import { ToastService } from '@shared/services/toast/toast.service';
 import { ScrollRevealContainerDirective } from '@shared/directives/scroll-reveal-container.directive';
+import { EnrollmentsService } from '@shared/services/learning/enrollments.service';
+import { PlacementTestService } from '@shared/services/learning/placement-test.service';
 import { UserService } from '@shared/services/user/user.service';
 
 @Component({
@@ -32,14 +37,31 @@ export default class PricingComponent {
   private readonly _router = inject(Router);
   private readonly _toast = inject(ToastService);
   private readonly _paypal = inject(PaypalCheckoutService);
+  private readonly _enrollmentsService = inject(EnrollmentsService);
+  private readonly _placementTestService = inject(PlacementTestService);
+  private readonly _destroyRef = inject(DestroyRef);
 
   readonly checkoutPlan = signal<PricingPlanId | null>(null);
+  readonly isCheckingStudentCourses = signal(false);
+  readonly hasStudentEnrollments = signal(true);
+  readonly shouldShowPlacementEntry = this._placementTestService.shouldShowPlacementEntry;
+  readonly shouldShowNoCoursesMessage = computed(
+    () =>
+      this._userService.isAuthenticated() &&
+      this._userService.isStudentSignal() &&
+      this.shouldShowPlacementEntry() &&
+      !this.isCheckingStudentCourses() &&
+      !this.hasStudentEnrollments(),
+  );
   private readonly _paypalHost = viewChild<ElementRef<HTMLElement>>('paypalHost');
 
   private _mountedPlan: PricingPlanId | null = null;
   private _mountedEl: HTMLElement | null = null;
 
   constructor() {
+    this._placementTestService.refreshStatus();
+    this._loadStudentEnrollments();
+
     effect(() => {
       const plan = this.checkoutPlan();
       const ref = this._paypalHost();
@@ -77,6 +99,32 @@ export default class PricingComponent {
     });
   }
 
+  private _loadStudentEnrollments(): void {
+    const user = this._userService.currentUser();
+    if (!user || !this._userService.isStudentSignal()) {
+      this.hasStudentEnrollments.set(true);
+      return;
+    }
+
+    this.isCheckingStudentCourses.set(true);
+    this._enrollmentsService
+      .getEnrollments()
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe({
+        next: (response) => {
+          const hasEnrollments = response.data.some(
+            (enrollment) => String(enrollment.student?.id) === String(user.id),
+          );
+          this.hasStudentEnrollments.set(hasEnrollments);
+          this.isCheckingStudentCourses.set(false);
+        },
+        error: () => {
+          this.hasStudentEnrollments.set(true);
+          this.isCheckingStudentCourses.set(false);
+        },
+      });
+  }
+
   planSummary(planId: PricingPlanId): string {
     const p = PRICING_PLAN_DETAILS[planId];
     return p
@@ -91,6 +139,13 @@ export default class PricingComponent {
   }
 
   buyNow(planId: PricingPlanId): void {
+    if (this.shouldShowNoCoursesMessage()) {
+      this._toast.showWarning(
+        'You are not enrolled in any course yet. Once admin assigns a course, it appears here.',
+      );
+      return;
+    }
+
     if (!this._userService.isAuthenticated()) {
       void this._router.navigateByUrl('/external/login');
       return;

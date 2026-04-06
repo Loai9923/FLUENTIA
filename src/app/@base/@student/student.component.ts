@@ -52,6 +52,14 @@ export default class StudentComponent extends BaseComponent {
   readonly averageProgress = signal(0);
   readonly paymentsCount = signal(0);
   readonly shouldShowPlacementEntry = this._placementTestService.shouldShowPlacementEntry;
+  readonly hasCompletedPlacement = this._placementTestService.hasCompletedPlacement;
+  readonly isPlacementStatusLoaded = this._placementTestService.isStatusLoaded;
+  readonly shouldShowPurchaseCtas = computed(
+    () =>
+      !this.hasEnrollments() &&
+      this.isPlacementStatusLoaded() &&
+      this.hasCompletedPlacement(),
+  );
 
   constructor() {
     super();
