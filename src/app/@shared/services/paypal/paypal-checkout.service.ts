@@ -53,6 +53,9 @@ export class PaypalCheckoutService {
     return environment.paypalClientId?.trim() ?? '';
   }
 
+  get secretClientId(): string {
+    return environment.secretClientId?.trim() ?? '';
+  }
   /**
    * Loads PayPal JS SDK once. Requires `paypalClientId` in environment.
    */
