@@ -126,7 +126,7 @@
             <li>{{ 'pages.pricing.features.digitalMaterials' | translate }}</li>
             <li>{{ 'pages.pricing.features.progressTracking' | translate }}</li>
           </ul>
-          <button type="button" class="cta cta--blue" (click)="buyNow('group-1m')" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
+          <button type="button" class="cta cta--blue" (click)="buyNow('group-1m', false)" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
         </article>
 
         <article class="card card--featured">
@@ -143,7 +143,7 @@
             <li>{{ 'pages.pricing.features.digitalMaterials' | translate }}</li>
             <li>{{ 'pages.pricing.features.progressTracking' | translate }}</li>
           </ul>
-          <button type="button" class="cta cta--blue" (click)="buyNow('group-2m')" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
+          <button type="button" class="cta cta--blue" (click)="buyNow('group-2m', false)" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
         </article>
 
         <article class="card card--featured">
@@ -159,7 +159,7 @@
             <li>{{ 'pages.pricing.features.digitalMaterials' | translate }}</li>
             <li>{{ 'pages.pricing.features.progressTracking' | translate }}</li>
           </ul>
-          <button type="button" class="cta cta--blue" (click)="buyNow('group-3m')" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
+          <button type="button" class="cta cta--blue" (click)="buyNow('group-3m', false)" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
         </article>
 
         <article class="card">
@@ -180,7 +180,7 @@
             <span class="card__extra-icon card__extra-icon--emoji" aria-hidden="true">🎁</span>
             {{ 'pages.pricing.bonus.twoClasses' | translate }}
           </p>
-          <button type="button" class="cta cta--gold" (click)="buyNow('group-6m')" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
+          <button type="button" class="cta cta--gold" (click)="buyNow('group-6m', false)" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
         </article>
 
         <article class="card card--featured">
@@ -202,7 +202,7 @@
             <span class="card__extra-icon card__extra-icon--emoji" aria-hidden="true">🎁</span>
             {{ 'pages.pricing.bonus.fiveClasses' | translate }}
           </p>
-          <button type="button" class="cta cta--gold" (click)="buyNow('group-12m')" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
+          <button type="button" class="cta cta--gold" (click)="buyNow('group-12m', false)" [disabled]="hasActiveStudentPayment()">{{ 'pages.pricing.buyNow' | translate }}</button>
 
         </article>
       </div>
@@ -220,7 +220,7 @@
             <span>{{ 'pages.pricing.sessions.one' | translate }}</span>
             <span class="mini-card__row-right">
               <strong>$20</strong>
-              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-30-1')" >
+              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-30-1', true)" >
                 {{ 'pages.pricing.buy' | translate }}
               </button>
             </span>
@@ -229,7 +229,7 @@
             <span>{{ 'pages.pricing.sessions.four' | translate }}</span>
             <span class="mini-card__row-right">
               <strong>$70</strong>
-              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-30-4')" >
+              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-30-4', true)" >
                 {{ 'pages.pricing.buy' | translate }}
               </button>
             </span>
@@ -238,7 +238,7 @@
             <span>{{ 'pages.pricing.sessions.eight' | translate }}</span>
             <span class="mini-card__row-right">
               <strong>$150</strong>
-              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-30-8')" >
+              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-30-8', true)" >
                 {{ 'pages.pricing.buy' | translate }}
               </button>
             </span>
@@ -252,7 +252,7 @@
             <span>{{ 'pages.pricing.sessions.one' | translate }}</span>
             <span class="mini-card__row-right">
               <strong>$35</strong>
-              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-60-1')" >
+              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-60-1', true)" >
                 {{ 'pages.pricing.buy' | translate }}
               </button>
             </span>
@@ -261,7 +261,7 @@
             <span>{{ 'pages.pricing.sessions.four' | translate }}</span>
             <span class="mini-card__row-right">
               <strong>$130</strong>
-              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-60-4')" >
+              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-60-4', true)" >
                 {{ 'pages.pricing.buy' | translate }}
               </button>
             </span>
@@ -270,7 +270,7 @@
             <span>{{ 'pages.pricing.sessions.eight' | translate }}</span>
             <span class="mini-card__row-right">
               <strong>$280</strong>
-              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-60-8')" >
+              <button type="button" class="cta cta--gold cta--inline" (click)="buyNow('private-60-8', true)" >
                 {{ 'pages.pricing.buy' | translate }}
               </button>
             </span>

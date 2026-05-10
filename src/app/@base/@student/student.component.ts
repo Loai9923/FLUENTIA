@@ -54,10 +54,28 @@ export default class StudentComponent extends BaseComponent {
       this.hasCompletedPlacement() || !!this.hub()?.placementCompleted,
   );
   readonly placementEnglishLevel = computed(() => {
-    const score = this.hub()?.placement?.score;
-    return score == null
-      ? null
-      : this._englishLevelService.englishLevelFromScore(score);
+    const p = this.hub()?.placement;
+    if (!p) {
+      return null;
+    }
+    return this._englishLevelService.englishLevelFromPlacement({
+      score: p.score,
+      correctAnswers: p.correctAnswers,
+      totalQuestions: p.totalQuestions,
+    });
+  });
+
+  /** i18n key segment: `pages.student.placementLevelDetails.levels.{key}`. */
+  readonly placementLevelKey = computed(() => {
+    const p = this.hub()?.placement;
+    if (!p) {
+      return null;
+    }
+    return this._englishLevelService.tierKeyFromInput({
+      score: p.score,
+      correctAnswers: p.correctAnswers,
+      totalQuestions: p.totalQuestions,
+    });
   });
 
   /**

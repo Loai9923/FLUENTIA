@@ -197,6 +197,27 @@ export const englishLocal: Locale = {
           correct: 'Correct:',
           submitted: 'Submitted:',
         },
+        placementLevelDetails: {
+          sectionTitle: 'What your result means',
+          sectionLead:
+            'Your answers are mapped to a 15-point scale. Scores 0–5 correspond to A1 / A2, 6–10 to B1 / B2, and 11–15 to C1.',
+          classFormat:
+            'All levels are offered in the morning and evening, with 4 sessions per week. Each session is 60 minutes long and is taught by our certified teachers.',
+          levels: {
+            a1a2: {
+              description:
+                'You are on the A1 / A2 track: building core vocabulary and grammar, understanding simple speech and texts, and gaining confidence in everyday situations.',
+            },
+            b1b2: {
+              description:
+                'You are on the B1 / B2 track: communicating more independently, handling broader topics, reading and writing with clearer structure, and polishing fluency.',
+            },
+            c1: {
+              description:
+                'You are on the C1 track: using English with flexibility and precision for demanding contexts, including nuanced speaking, complex reading, and polished writing.',
+            },
+          },
+        },
         payments: {
           title: 'Payments',
           noPayments: 'No payments recorded yet.',
@@ -407,6 +428,16 @@ export const englishLocal: Locale = {
         },
         messages: {
           paymentSuccess: 'Payment successful. Thank you!',
+        },
+        registrationComplete: {
+          title: 'Your registration has been completed successfully.',
+          paragraph1:
+            'You will receive a confirmation email within 24 hours with your class details and next steps.',
+          paragraphDashboard:
+            'Please go to your dashboard and choose your availability: morning or evening.',
+          paragraph2Prefix:
+            'If you do not receive an email within this time, please contact us at ',
+          closeButton: 'OK',
         },
       },
       about: {

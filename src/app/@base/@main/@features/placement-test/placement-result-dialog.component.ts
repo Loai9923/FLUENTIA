@@ -32,8 +32,12 @@ export class PlacementResultDialogComponent {
   readonly data = inject<PlacementResultDialogData>(MAT_DIALOG_DATA);
   readonly englishLevelService = inject(EnglishLevelService);
 
-  englishLevelFromScore(score: number): string {
-    return this.englishLevelService.englishLevelFromScore(score);
+  englishLevelLabel(): string {
+    return this.englishLevelService.englishLevelFromPlacement({
+      score: this.data.result.score,
+      correctAnswers: this.data.result.correctAnswers,
+      totalQuestions: this.data.result.totalQuestions,
+    });
   }
 
   /**

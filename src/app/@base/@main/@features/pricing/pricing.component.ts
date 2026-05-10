@@ -29,6 +29,8 @@ import { PlacementTestService } from '@shared/services/learning/placement-test.s
 import { UserService } from '@shared/services/user/user.service';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateService } from '@ngx-translate/core';
+import { MatDialog } from '@angular/material/dialog';
+import { PaymentRegistrationSuccessDialogComponent } from './payment-registration-success-dialog.component';
 
 @Component({
   selector: 'app-pricing',
@@ -39,6 +41,7 @@ import { TranslateService } from '@ngx-translate/core';
   imports: [ScrollRevealContainerDirective, TranslateModule],
 })
 export default class PricingComponent {
+  public isPrivate = signal(false);
   private readonly _userService = inject(UserService);
   private readonly _router = inject(Router);
   private readonly _toast = inject(ToastService);
@@ -48,7 +51,8 @@ export default class PricingComponent {
   private readonly _placementTestService = inject(PlacementTestService);
   private readonly _translate = inject(TranslateService);
   private readonly _destroyRef = inject(DestroyRef);
-
+  private readonly _dialog = inject(MatDialog);
+  
   readonly checkoutPlan = signal<PricingPlanId | null>(null);
   readonly isCheckingStudentCourses = signal(false);
   readonly hasStudentEnrollments = signal(true);
@@ -173,14 +177,17 @@ export default class PricingComponent {
     this.persistPaymentRecord(payload, { isRetry: true });
   }
 
-  buyNow(planId: PricingPlanId): void {
+  buyNow(planId: PricingPlanId , isPrivate: boolean = false): void {
 
+    this.isPrivate.set(isPrivate);
+   if (!isPrivate) {
     if (this.hasActiveStudentPayment()) {
       this._toast.showError(
         this._translate.instant('pages.pricing.errors.activePaymentExists'),
       );
       return;
     }
+  }
 
     if (!this._userService.isAuthenticated()) {
       void this._router.navigateByUrl('/external/login');
@@ -222,11 +229,17 @@ export default class PricingComponent {
           this.paymentSaveError.set(null);
           this.isRetryingPaymentSave.set(false);
           this._pendingPaymentPayload.set(null);
-          this._toast.showSuccess(this._translate.instant('pages.pricing.messages.paymentSuccess'));
           this.checkoutPlan.set(null);
           this._mountedPlan = null;
           this._mountedEl = null;
           this._loadStudentHubForPricing();
+          this._dialog.open(PaymentRegistrationSuccessDialogComponent, {
+            width: 'min(100vw - 32px, 460px)',
+            maxWidth: '95vw',
+            panelClass: 'payment-registration-success-dialog-panel',
+            autoFocus: true,
+            restoreFocus: true,
+          });
         },
         error: () => {
           this.isRetryingPaymentSave.set(false);

@@ -134,3 +134,17 @@ app-form-errors {
     color: #999;
   }
 }
+
+/* Payment success dialog (panel is outside component encapsulation) */
+.mat-mdc-dialog-panel.payment-registration-success-dialog-panel {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow:
+    0 24px 56px rgba(11, 58, 102, 0.22),
+    0 0 0 1px rgba(11, 58, 102, 0.06);
+}
+
+.mat-mdc-dialog-panel.payment-registration-success-dialog-panel .mat-mdc-dialog-surface {
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff 0%, #fafcfe 100%);
+}

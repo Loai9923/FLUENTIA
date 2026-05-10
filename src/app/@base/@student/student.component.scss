@@ -82,6 +82,43 @@
   margin-top: 1rem;
 }
 
+.info-card--placement-details {
+  margin-top: 0.85rem;
+}
+
+.info-card__title {
+  margin: 0 0 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #0b3a66;
+}
+
+.info-card__lead {
+  margin: 0 0 0.55rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: rgba(11, 58, 102, 0.78);
+}
+
+.info-card__body {
+  margin: 0 0 0.5rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.55;
+  color: rgba(11, 58, 102, 0.88);
+}
+
+.info-card__body:last-child {
+  margin-bottom: 0;
+}
+
+.info-card__body--class-format {
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(11, 58, 102, 0.12);
+}
+
 .role-page__header {
   border-left: 4px solid rgba(212, 166, 42, 0.7);
 }
