@@ -1,0 +1,34 @@
+<div class="payment-registration-success-dialog__frame">
+  <div class="payment-registration-success-dialog__accent" aria-hidden="true"></div>
+
+  <div class="payment-registration-success-dialog__header">
+    <div class="payment-registration-success-dialog__icon-wrap" aria-hidden="true">
+      <mat-icon class="payment-registration-success-dialog__icon">verified</mat-icon>
+    </div>
+    <h2 mat-dialog-title class="payment-registration-success-dialog__title">
+      {{ 'pages.pricing.registrationComplete.title' | translate }}
+    </h2>
+  </div>
+
+  <mat-dialog-content class="payment-registration-success-dialog__content">
+    <p class="payment-registration-success-dialog__line">
+      {{ 'pages.pricing.registrationComplete.paragraph1' | translate }}
+    </p>
+    <p class="payment-registration-success-dialog__line payment-registration-success-dialog__line--highlight">
+      {{ 'pages.pricing.registrationComplete.paragraphDashboard' | translate }}
+    </p>
+
+    <div class="payment-registration-success-dialog__contact">
+      <p class="payment-registration-success-dialog__contact-intro">
+        {{ 'pages.pricing.registrationComplete.paragraph2Prefix' | translate }}
+      </p>
+      <a class="payment-registration-success-dialog__email-link" [href]="mailtoHref">{{ contactEmail }}</a>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end" class="payment-registration-success-dialog__actions">
+    <button type="button" class="payment-registration-success-dialog__ok" mat-dialog-close>
+      {{ 'pages.pricing.registrationComplete.closeButton' | translate }}
+    </button>
+  </mat-dialog-actions>
+</div>
